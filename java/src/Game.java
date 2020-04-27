@@ -1,7 +1,7 @@
 public class Game {
     public static final char SPACE = ' ';
     public static final char CHAR_O = 'O';
-    private char _lastSymbol = ' ';
+    private char _lastSymbol = SPACE;
     private Board _board = new Board();
 
     public void Play(char symbol, int x, int y) throws Exception {
@@ -28,9 +28,9 @@ public class Game {
 
     public char Winner() {
         //if the positions in first row are taken
-        if (_board.TileAt(0, 0).Symbol != ' ' &&
-                _board.TileAt(0, 1).Symbol != ' ' &&
-                _board.TileAt(0, 2).Symbol != ' ') {
+        if (_board.TileAt(0, 0).Symbol != SPACE &&
+                _board.TileAt(0, 1).Symbol != SPACE &&
+                _board.TileAt(0, 2).Symbol != SPACE) {
             //if first row is full with same symbol
             if (_board.TileAt(0, 0).Symbol ==
                     _board.TileAt(0, 1).Symbol &&
@@ -40,9 +40,9 @@ public class Game {
         }
 
         //if the positions in first row are taken
-        if (_board.TileAt(1, 0).Symbol != ' ' &&
-                _board.TileAt(1, 1).Symbol != ' ' &&
-                _board.TileAt(1, 2).Symbol != ' ') {
+        if (_board.TileAt(1, 0).Symbol != SPACE &&
+                _board.TileAt(1, 1).Symbol != SPACE &&
+                _board.TileAt(1, 2).Symbol != SPACE) {
             //if middle row is full with same symbol
             if (_board.TileAt(1, 0).Symbol ==
                     _board.TileAt(1, 1).Symbol &&
@@ -53,9 +53,9 @@ public class Game {
         }
 
         //if the positions in first row are taken
-        if (_board.TileAt(2, 0).Symbol != ' ' &&
-                _board.TileAt(2, 1).Symbol != ' ' &&
-                _board.TileAt(2, 2).Symbol != ' ') {
+        if (_board.TileAt(2, 0).Symbol != SPACE &&
+                _board.TileAt(2, 1).Symbol != SPACE &&
+                _board.TileAt(2, 2).Symbol != SPACE) {
             //if middle row is full with same symbol
             if (_board.TileAt(2, 0).Symbol ==
                     _board.TileAt(2, 1).Symbol &&
@@ -65,7 +65,7 @@ public class Game {
             }
         }
 
-        return ' ';
+        return SPACE;
     }
 }
 
