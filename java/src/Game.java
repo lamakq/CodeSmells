@@ -5,8 +5,7 @@ public class Game {
     Symbol lastSymbol = new Symbol();
 
     public void Play(char symbol, int x, int y) throws Exception {
-        //if first move
-        if (lastSymbol.get() == SPACE) {
+        if (isFirstMove()) {
             //if player is X
             if (symbol == CHAR_O) {
                 throw new Exception("Invalid first player");
@@ -24,6 +23,10 @@ public class Game {
         // update game state
         lastSymbol.set(symbol);
         _board.AddTileAt(symbol, x, y);
+    }
+
+    private boolean isFirstMove() {
+        return lastSymbol.get() == SPACE;
     }
 
     public char Winner() {
