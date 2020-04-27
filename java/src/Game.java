@@ -20,7 +20,10 @@ public class Game {
             throw new Exception("Invalid position");
         }
 
-        // update game state
+        updateGameState(symbol, x, y);
+    }
+
+    private void updateGameState(char symbol, int x, int y) {
         lastSymbol.set(symbol);
         _board.AddTileAt(symbol, x, y);
     }
