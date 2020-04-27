@@ -1,11 +1,11 @@
 public class Symbol {
-    public char _lastSymbol = Game.SPACE;
+    public char symbol = Game.SPACE;
 
-    public char get_lastSymbol() {
-        return _lastSymbol;
+    public char get() {
+        return symbol;
     }
 
-    public void set_lastSymbol(char _lastSymbol) {
-        this._lastSymbol = _lastSymbol;
+    public void set(char symbol) {
+        this.symbol = symbol;
     }
 }

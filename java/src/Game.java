@@ -10,14 +10,14 @@ public class Game {
 
     public void Play(char symbol, int x, int y) throws Exception {
         //if first move
-        if (lastSymbol.get_lastSymbol() == SPACE) {
+        if (lastSymbol.get() == SPACE) {
             //if player is X
             if (symbol == CHAR_O) {
                 throw new Exception("Invalid first player");
             }
         }
         //if not first move but player repeated
-        else if (symbol == lastSymbol.get_lastSymbol()) {
+        else if (symbol == lastSymbol.get()) {
             throw new Exception("Invalid next player");
         }
         //if not first move but play on an already played tile
@@ -26,7 +26,7 @@ public class Game {
         }
 
         // update game state
-        lastSymbol.set_lastSymbol(symbol);
+        lastSymbol.set(symbol);
         _board.AddTileAt(symbol, x, y);
     }
 
