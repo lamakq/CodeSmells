@@ -4,6 +4,11 @@ public class Game {
     private char _lastSymbol = SPACE;
     private Board _board = new Board();
 
+    public Game() {
+        this._lastSymbol = SPACE;
+        this._board = new Board();
+    }
+
     public void Play(char symbol, int x, int y) throws Exception {
         //if first move
         if (_lastSymbol == SPACE) {
