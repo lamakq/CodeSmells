@@ -10,8 +10,7 @@ public class Game {
                 throw new Exception("Invalid first player");
             }
         }
-        //if not first move but player repeated
-        else if (symbol == lastSymbol.get()) {
+        else if (repeatedMove(symbol)) {
             throw new Exception("Invalid next player");
         }
         //if not first move but play on an already played tile
@@ -20,6 +19,10 @@ public class Game {
         }
 
         updateGameState(symbol, x, y);
+    }
+
+    private boolean repeatedMove(char symbol) {
+        return symbol == lastSymbol.get();
     }
 
     private boolean playerIsNotX(char symbol) {
