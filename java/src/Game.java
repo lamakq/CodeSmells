@@ -1,24 +1,23 @@
 public class Game {
     public static final char SPACE = ' ';
     public static final char CHAR_O = 'O';
-    private char _lastSymbol = SPACE;
     private Board _board = new Board();
 
     public Game() {
-        this._lastSymbol = SPACE;
+        Symbol.set_lastSymbol(SPACE);
         this._board = new Board();
     }
 
     public void Play(char symbol, int x, int y) throws Exception {
         //if first move
-        if (_lastSymbol == SPACE) {
+        if (Symbol.get_lastSymbol() == SPACE) {
             //if player is X
             if (symbol == CHAR_O) {
                 throw new Exception("Invalid first player");
             }
         }
         //if not first move but player repeated
-        else if (symbol == _lastSymbol) {
+        else if (symbol == Symbol.get_lastSymbol()) {
             throw new Exception("Invalid next player");
         }
         //if not first move but play on an already played tile
@@ -27,7 +26,7 @@ public class Game {
         }
 
         // update game state
-        _lastSymbol = symbol;
+        Symbol.set_lastSymbol(symbol);
         _board.AddTileAt(symbol, x, y);
     }
 
