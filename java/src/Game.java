@@ -4,10 +4,6 @@ public class Game {
     private Board _board = new Board();
     Symbol lastSymbol = new Symbol();
 
-    public Game() {
-        this._board = new Board();
-    }
-
     public void Play(char symbol, int x, int y) throws Exception {
         //if first move
         if (lastSymbol.get() == SPACE) {
