@@ -1,12 +1,14 @@
 public class Game {
+    public static final char SPACE = ' ';
+    public static final char CHAR_O = 'O';
     private char _lastSymbol = ' ';
     private Board _board = new Board();
 
     public void Play(char symbol, int x, int y) throws Exception {
         //if first move
-        if (_lastSymbol == ' ') {
+        if (_lastSymbol == SPACE) {
             //if player is X
-            if (symbol == 'O') {
+            if (symbol == CHAR_O) {
                 throw new Exception("Invalid first player");
             }
         }
@@ -15,7 +17,7 @@ public class Game {
             throw new Exception("Invalid next player");
         }
         //if not first move but play on an already played tile
-        else if (_board.TileAt(x, y).Symbol != ' ') {
+        else if (_board.TileAt(x, y).Symbol != SPACE) {
             throw new Exception("Invalid position");
         }
 
