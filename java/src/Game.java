@@ -6,8 +6,7 @@ public class Game {
 
     public void Play(char symbol, int x, int y) throws Exception {
         if (isFirstMove()) {
-            //if player is X
-            if (symbol == CHAR_O) {
+            if (playerIsNotX(symbol)) {
                 throw new Exception("Invalid first player");
             }
         }
@@ -21,6 +20,10 @@ public class Game {
         }
 
         updateGameState(symbol, x, y);
+    }
+
+    private boolean playerIsNotX(char symbol) {
+        return symbol == CHAR_O;
     }
 
     private void updateGameState(char symbol, int x, int y) {
