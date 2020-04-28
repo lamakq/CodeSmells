@@ -61,14 +61,16 @@ public class Board
         return Arrays.stream(coordinates).map(plays::get).allMatch(plays.get(coordinates[0])::equals);
     }
 
+    private boolean coordinatesAreAllTaken(Coordinate[] coordinates) {
+        return Arrays.stream(coordinates).map(this::tileIsAlreadyPlayed).allMatch(Boolean.TRUE::equals);
+    }
+
     private boolean thirdRowHasSameSymbols() {
         return coordinatesHaveSameSymbols(THIRD_ROW_COORDINATES);
     }
 
     private boolean thirdRowPositionsAreTaken() {
-        return tileIsAlreadyPlayed(new Coordinate(2, 0)) &&
-                tileIsAlreadyPlayed(new Coordinate(2, 1)) &&
-                tileIsAlreadyPlayed(new Coordinate(2, 2));
+        return coordinatesAreAllTaken(THIRD_ROW_COORDINATES);
     }
 
     private boolean secondRowHasSameSymbols() {
@@ -76,9 +78,7 @@ public class Board
     }
 
     private boolean secondRowPositionsAreTaken() {
-        return tileIsAlreadyPlayed(new Coordinate(1, 0)) &&
-                tileIsAlreadyPlayed(new Coordinate(1, 1)) &&
-                tileIsAlreadyPlayed(new Coordinate(1, 2));
+        return coordinatesAreAllTaken(SECOND_ROW_COORDINATES);
     }
 
     private boolean firstRowHasSameSymbols() {
@@ -86,8 +86,6 @@ public class Board
     }
 
     private boolean firstRowPositionsAreTaken() {
-        return tileIsAlreadyPlayed(new Coordinate(0, 0)) &&
-                tileIsAlreadyPlayed(new Coordinate(0, 1)) &&
-                tileIsAlreadyPlayed(new Coordinate(0, 2));
+        return coordinatesAreAllTaken(FIRST_ROW_COORDINATES);
     }
 }
