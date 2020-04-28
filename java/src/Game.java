@@ -8,16 +8,28 @@ public class Game {
     }
 
     private void validateMove(Coordinate coordinate, Symbol symbol) throws Exception {
+        validateFirstMove(symbol);
+        validateRepeatedMove(symbol);
+        validateTileAlreadyPlayed(coordinate);
+    }
+
+    private void validateTileAlreadyPlayed(Coordinate coordinate) throws Exception {
+        if (_board.tileIsAlreadyPlayed(coordinate)) {
+            throw new Exception("Invalid position");
+        }
+    }
+
+    private void validateRepeatedMove(Symbol symbol) throws Exception {
+        if (repeatedMove(symbol)) {
+            throw new Exception("Invalid next player");
+        }
+    }
+
+    private void validateFirstMove(Symbol symbol) throws Exception {
         if (isFirstMove()) {
             if (playerIsNotX(symbol)) {
                 throw new Exception("Invalid first player");
             }
-        }
-        else if (repeatedMove(symbol)) {
-            throw new Exception("Invalid next player");
-        }
-        else if (_board.tileIsAlreadyPlayed(coordinate)) {
-            throw new Exception("Invalid position");
         }
     }
 
