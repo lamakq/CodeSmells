@@ -24,11 +24,14 @@ public class Board
 
     public Symbol Winner() {
         return Arrays.stream(ALL_ROW_COORDINATES)
-                .filter(this::coordinatesAreAllTaken)
-                .filter(this::coordinatesHaveSameSymbols)
+                .filter(this::areWinningCoordinates)
                 .map(coordinates -> symbolAt(coordinates[0]))
                 .findFirst()
                 .orElse(Symbol.SPACE);
+    }
+
+    private boolean areWinningCoordinates(Coordinate[] coordinates) {
+        return coordinatesAreAllTaken(coordinates) && coordinatesHaveSameSymbols(coordinates);
     }
 
     private static final Coordinate[] THIRD_ROW_COORDINATES = {
