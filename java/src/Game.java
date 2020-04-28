@@ -17,7 +17,7 @@ public class Game {
         else if (repeatedMove(symbol)) {
             throw new Exception("Invalid next player");
         }
-        else if (_board.tileIsAlreadyPlayed(x, y)) {
+        else if (_board.tileIsAlreadyPlayed(new Coordinate(x, y))) {
             throw new Exception("Invalid position");
         }
     }

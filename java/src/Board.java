@@ -20,10 +20,6 @@ public class Board
         plays.put(coordinate, symbol);
     }
 
-    boolean tileIsAlreadyPlayed(int x, int y) {
-        return plays.containsKey(new Coordinate(x, y));
-    }
-
     boolean tileIsAlreadyPlayed(Coordinate coordinate) {
         return plays.containsKey(coordinate);
     }
@@ -31,19 +27,19 @@ public class Board
     public Symbol Winner() {
         if (firstRowPositionsAreTaken()) {
             if (firstRowHasSameSymbols()) {
-                return symbolAt(0, 0);
+                return symbolAt(new Coordinate(0, 0));
             }
         }
 
         if (secondRowPositionsAreTaken()) {
             if (secondRowHasSameSymbols()) {
-                return symbolAt(1, 0);
+                return symbolAt(new Coordinate(1, 0));
             }
         }
 
         if (thirdRowPositionsAreTaken()) {
             if (thirdRowHasSameSymbols()) {
-                return symbolAt(2, 0);
+                return symbolAt(new Coordinate(2, 0));
             }
         }
 
@@ -58,9 +54,9 @@ public class Board
     }
 
     private boolean thirdRowPositionsAreTaken() {
-        return tileIsAlreadyPlayed(2, 0) &&
-                tileIsAlreadyPlayed(2, 1) &&
-                tileIsAlreadyPlayed(2, 2);
+        return tileIsAlreadyPlayed(new Coordinate(2, 0)) &&
+                tileIsAlreadyPlayed(new Coordinate(2, 1)) &&
+                tileIsAlreadyPlayed(new Coordinate(2, 2));
     }
 
     private boolean secondRowHasSameSymbols() {
@@ -71,9 +67,9 @@ public class Board
     }
 
     private boolean secondRowPositionsAreTaken() {
-        return tileIsAlreadyPlayed(1, 0) &&
-                tileIsAlreadyPlayed(1, 1) &&
-                tileIsAlreadyPlayed(1, 2);
+        return tileIsAlreadyPlayed(new Coordinate(1, 0)) &&
+                tileIsAlreadyPlayed(new Coordinate(1, 1)) &&
+                tileIsAlreadyPlayed(new Coordinate(1, 2));
     }
 
     private boolean firstRowHasSameSymbols() {
@@ -83,8 +79,8 @@ public class Board
     }
 
     private boolean firstRowPositionsAreTaken() {
-        return tileIsAlreadyPlayed(0, 0) &&
-                tileIsAlreadyPlayed(0, 1) &&
-                tileIsAlreadyPlayed(0, 2);
+        return tileIsAlreadyPlayed(new Coordinate(0, 0)) &&
+                tileIsAlreadyPlayed(new Coordinate(0, 1)) &&
+                tileIsAlreadyPlayed(new Coordinate(0, 2));
     }
 }
