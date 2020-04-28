@@ -1,3 +1,8 @@
+.idea
+target/
+*.iml
+
+
 *.swp
 *.*~
 project.lock.json
