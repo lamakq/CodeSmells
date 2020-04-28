@@ -3,12 +3,12 @@ public class Game {
     Symbol lastSymbol = Symbol.SPACE;
 
     public void Play(Symbol symbol, int x, int y) throws Exception {
-        validateMove(symbol, x, y);
+        validateMove(symbol, new Coordinate(x, y));
 
         updateGameState(symbol, x, y);
     }
 
-    private void validateMove(Symbol symbol, int x, int y) throws Exception {
+    private void validateMove(Symbol symbol, Coordinate coordinate) throws Exception {
         if (isFirstMove()) {
             if (playerIsNotX(symbol)) {
                 throw new Exception("Invalid first player");
@@ -17,7 +17,7 @@ public class Game {
         else if (repeatedMove(symbol)) {
             throw new Exception("Invalid next player");
         }
-        else if (_board.tileIsAlreadyPlayed(new Coordinate(x, y))) {
+        else if (_board.tileIsAlreadyPlayed(coordinate)) {
             throw new Exception("Invalid position");
         }
     }
