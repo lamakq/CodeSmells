@@ -3,6 +3,12 @@ public class Game {
     Symbol lastSymbol = Symbol.SPACE;
 
     public void Play(Symbol symbol, int x, int y) throws Exception {
+        validateMove(symbol, x, y);
+
+        updateGameState(symbol, x, y);
+    }
+
+    private void validateMove(Symbol symbol, int x, int y) throws Exception {
         if (isFirstMove()) {
             if (playerIsNotX(symbol)) {
                 throw new Exception("Invalid first player");
@@ -14,8 +20,6 @@ public class Game {
         else if (_board.tileIsAlreadyPlayed(x, y)) {
             throw new Exception("Invalid position");
         }
-
-        updateGameState(symbol, x, y);
     }
 
     private boolean repeatedMove(Symbol symbol) {
