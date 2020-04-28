@@ -1,9 +1,12 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Board
 {
     private List<Tile> _plays = new ArrayList<>();
+    private Map<Coordinate, Symbol> plays = new HashMap<>();
 
     public Board()
     {
@@ -30,10 +33,11 @@ public class Board
     public void AddTileAt(Symbol symbol, int x, int y)
     {
         TileAt(x, y).setSymbol(symbol);
+        plays.put(new Coordinate(x, y), symbol);
     }
 
     boolean tileIsAlreadyPlayed(int x, int y) {
-        return !TileAt(x, y).getSymbol().equals(Symbol.SPACE);
+        return plays.containsKey(new Coordinate(x, y));
     }
 
     public Symbol Winner(Game game) {
