@@ -12,9 +12,9 @@ public class Board
             for (int j = 0; j < 3; j++)
             {
                 Tile tile = new Tile();
-                tile.X = i;
-                tile.Y = j;
-                tile.Symbol = ' ';
+                tile.setX(i);
+                tile.setY(j);
+                tile.setSymbol(' ');
                 _plays.add(tile);
             }
         }
@@ -23,7 +23,7 @@ public class Board
     public Tile TileAt(int x, int y)
     {
         for (Tile t : _plays) {
-            if (t.X == x && t.Y == y){
+            if (t.getX() == x && t.getY() == y){
                 return t;
             }
         }
@@ -33,10 +33,10 @@ public class Board
     public void AddTileAt(char symbol, int x, int y)
     {
         Tile newTile = new Tile();
-        newTile.X = x;
-        newTile.Y = y;
-        newTile.Symbol = symbol;
+        newTile.setX(x);
+        newTile.setY(y);
+        newTile.setSymbol(symbol);
 
-        TileAt(x,y).Symbol = symbol;
+        TileAt(x, y).setSymbol(symbol);
     }
 }
