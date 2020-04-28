@@ -21,7 +21,7 @@ public class Game {
     }
 
     private boolean tileIsAlreadyPlayed(int x, int y) {
-        return _board.TileAt(x, y).getSymbol() != SPACE;
+        return !_board.TileAt(x, y).getRealSymbol().equals(Symbol.SPACE);
     }
 
     private boolean repeatedMove(Symbol symbol) {
