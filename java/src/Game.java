@@ -3,9 +3,13 @@ public class Game {
     Symbol lastSymbol = Symbol.SPACE;
 
     public void Play(Symbol symbol, int x, int y) throws Exception {
-        validateMove(symbol, new Coordinate(x, y));
+        Play(symbol, new Coordinate(x, y));
+    }
 
-        updateGameState(symbol, x, y);
+    public void Play(Symbol symbol, Coordinate coordinate) throws Exception {
+        validateMove(symbol, coordinate);
+
+        updateGameState(symbol, coordinate);
     }
 
     private void validateMove(Symbol symbol, Coordinate coordinate) throws Exception {
@@ -30,9 +34,9 @@ public class Game {
         return symbol.equals(Symbol.O);
     }
 
-    private void updateGameState(Symbol symbol, int x, int y) {
+    private void updateGameState(Symbol symbol, Coordinate coordinate) {
         lastSymbol = symbol;
-        _board.AddTileAt(symbol, new Coordinate(x, y));
+        _board.AddTileAt(symbol, coordinate);
     }
 
     private boolean isFirstMove() {
