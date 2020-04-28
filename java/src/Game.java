@@ -2,10 +2,6 @@ public class Game {
     Board _board = new Board();
     Symbol lastSymbol = Symbol.SPACE;
 
-    public void Play(Symbol symbol, int x, int y) throws Exception {
-        Play(symbol, new Coordinate(x, y));
-    }
-
     public void Play(Symbol symbol, Coordinate coordinate) throws Exception {
         validateMove(symbol, coordinate);
 
