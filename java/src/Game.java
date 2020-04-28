@@ -2,16 +2,18 @@ public class Game {
     public static final char SPACE = ' ';
     public static final Symbol SPACE_SYMBOL = new Symbol(SPACE);
     public static final char CHAR_O = 'O';
+    public static final Symbol CHAR_O_SYMBOL = new Symbol(CHAR_O);
     private Board _board = new Board();
     Symbol lastSymbol = new Symbol(Game.SPACE);
 
     public void Play(char symbol, int x, int y) throws Exception {
+        Symbol symbol1 = new Symbol(symbol);
         if (isFirstMove()) {
-            if (playerIsNotX(symbol)) {
+            if (playerIsNotX(symbol1)) {
                 throw new Exception("Invalid first player");
             }
         }
-        else if (repeatedMove(symbol)) {
+        else if (repeatedMove(symbol1)) {
             throw new Exception("Invalid next player");
         }
         else if (tileIsAlreadyPlayed(x, y)) {
@@ -25,12 +27,12 @@ public class Game {
         return _board.TileAt(x, y).getSymbol() != SPACE;
     }
 
-    private boolean repeatedMove(char symbol) {
-        return symbol == lastSymbol.get();
+    private boolean repeatedMove(Symbol symbol) {
+        return symbol.equals(lastSymbol);
     }
 
-    private boolean playerIsNotX(char symbol) {
-        return symbol == CHAR_O;
+    private boolean playerIsNotX(Symbol symbol) {
+        return symbol.equals(CHAR_O_SYMBOL);
     }
 
     private void updateGameState(char symbol, int x, int y) {
