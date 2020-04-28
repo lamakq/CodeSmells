@@ -5,11 +5,6 @@ public class Board
 {
     private Map<Coordinate, Symbol> plays = new HashMap<>();
 
-    private Symbol symbolAt(int x, int y)
-    {
-        return plays.get(new Coordinate(x, y));
-    }
-
     private Symbol symbolAt(Coordinate coordinate)
     {
         return plays.get(coordinate);
@@ -47,10 +42,10 @@ public class Board
     }
 
     private boolean thirdRowHasSameSymbols() {
-        return symbolAt(2, 0).equals(
-                symbolAt(2, 1)) &&
-                symbolAt(2, 2).equals(
-                        symbolAt(2, 1));
+        return symbolAt(new Coordinate(2, 0)).equals(
+                symbolAt(new Coordinate(2, 1))) &&
+                symbolAt(new Coordinate(2, 2)).equals(
+                        symbolAt(new Coordinate(2, 1)));
     }
 
     private boolean thirdRowPositionsAreTaken() {
@@ -60,10 +55,10 @@ public class Board
     }
 
     private boolean secondRowHasSameSymbols() {
-        return symbolAt(1, 0).equals(
-                symbolAt(1, 1)) &&
-                symbolAt(1, 2).equals(
-                        symbolAt(1, 1));
+        return symbolAt(new Coordinate(1, 0)).equals(
+                symbolAt(new Coordinate(1, 1))) &&
+                symbolAt(new Coordinate(1, 2)).equals(
+                        symbolAt(new Coordinate(1, 1)));
     }
 
     private boolean secondRowPositionsAreTaken() {
@@ -73,9 +68,10 @@ public class Board
     }
 
     private boolean firstRowHasSameSymbols() {
-        return symbolAt(0, 0).equals(
-                symbolAt(0, 1)) &&
-                symbolAt(0, 2).equals(symbolAt(0, 1));
+        return symbolAt(new Coordinate(0, 0)).equals(
+                symbolAt(new Coordinate(0, 1))) &&
+                symbolAt(new Coordinate(0, 2))
+                        .equals(symbolAt(new Coordinate(0, 1)));
     }
 
     private boolean firstRowPositionsAreTaken() {
