@@ -47,6 +47,16 @@ public class Board
             new Coordinate(2, 1),
             new Coordinate(2,2)};
 
+    private static final Coordinate[] SECOND_ROW_COORDINATES = {
+            new Coordinate(1,0),
+            new Coordinate(1, 1),
+            new Coordinate(1,2)};
+
+    private static final Coordinate[] FIRST_ROW_COORDINATES = {
+            new Coordinate(0,0),
+            new Coordinate(0, 1),
+            new Coordinate(0,2)};
+
     private boolean coordinatesHaveSameSymbols(Coordinate[] coordinates) {
         return Arrays.stream(coordinates).map(plays::get).allMatch(plays.get(coordinates[0])::equals);
     }
@@ -62,10 +72,7 @@ public class Board
     }
 
     private boolean secondRowHasSameSymbols() {
-        return symbolAt(new Coordinate(1, 0)).equals(
-                symbolAt(new Coordinate(1, 1))) &&
-                symbolAt(new Coordinate(1, 2)).equals(
-                        symbolAt(new Coordinate(1, 1)));
+        return coordinatesHaveSameSymbols(SECOND_ROW_COORDINATES);
     }
 
     private boolean secondRowPositionsAreTaken() {
@@ -75,10 +82,7 @@ public class Board
     }
 
     private boolean firstRowHasSameSymbols() {
-        return symbolAt(new Coordinate(0, 0)).equals(
-                symbolAt(new Coordinate(0, 1))) &&
-                symbolAt(new Coordinate(0, 2))
-                        .equals(symbolAt(new Coordinate(0, 1)));
+        return coordinatesHaveSameSymbols(FIRST_ROW_COORDINATES);
     }
 
     private boolean firstRowPositionsAreTaken() {
