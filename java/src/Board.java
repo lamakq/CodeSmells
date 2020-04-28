@@ -23,19 +23,19 @@ public class Board
     public Symbol Winner() {
         if (firstRowPositionsAreTaken()) {
             if (firstRowHasSameSymbols()) {
-                return symbolAt(new Coordinate(0, 0));
+                return symbolAt(FIRST_ROW_COORDINATES[0]);
             }
         }
 
         if (secondRowPositionsAreTaken()) {
             if (secondRowHasSameSymbols()) {
-                return symbolAt(new Coordinate(1, 0));
+                return symbolAt(SECOND_ROW_COORDINATES[0]);
             }
         }
 
         if (thirdRowPositionsAreTaken()) {
             if (thirdRowHasSameSymbols()) {
-                return symbolAt(new Coordinate(2, 0));
+                return symbolAt(THIRD_ROW_COORDINATES[0]);
             }
         }
 
