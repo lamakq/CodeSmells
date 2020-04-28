@@ -23,21 +23,11 @@ public class Board
     }
 
     public Symbol Winner() {
-        if (firstRowPositionsAreTaken()) {
-            if (firstRowHasSameSymbols()) {
-                return symbolAt(FIRST_ROW_COORDINATES[0]);
-            }
-        }
-
-        if (secondRowPositionsAreTaken()) {
-            if (secondRowHasSameSymbols()) {
-                return symbolAt(SECOND_ROW_COORDINATES[0]);
-            }
-        }
-
-        if (thirdRowPositionsAreTaken()) {
-            if (thirdRowHasSameSymbols()) {
-                return symbolAt(THIRD_ROW_COORDINATES[0]);
+        for (Coordinate[] coordinates: ALL_WINNING_COORDINATES) {
+            if (coordinatesAreAllTaken(coordinates)) {
+                if (coordinatesHaveSameSymbols(coordinates)) {
+                    return symbolAt(coordinates[0]);
+                }
             }
         }
 
@@ -58,6 +48,10 @@ public class Board
             new Coordinate(0,0),
             new Coordinate(0, 1),
             new Coordinate(0,2)};
+
+    private static final Coordinate[][] ALL_WINNING_COORDINATES = {
+            FIRST_ROW_COORDINATES, SECOND_ROW_COORDINATES, THIRD_ROW_COORDINATES
+    };
 
     private boolean coordinatesHaveSameSymbols(Coordinate[] coordinates) {
         return Arrays.stream(coordinates)

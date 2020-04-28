@@ -4,7 +4,6 @@ public class Game {
 
     public void Play(Coordinate coordinate, Symbol symbol) throws Exception {
         validateMove(coordinate, symbol);
-
         updateGameState(symbol, coordinate);
     }
 
