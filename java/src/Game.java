@@ -4,20 +4,23 @@ public class Game {
     Symbol lastSymbol = new Symbol(Game.SPACE);
 
     public void Play(char symbol, int x, int y) throws Exception {
-        Symbol symbol1 = new Symbol(symbol);
+        Play(new Symbol(symbol), x, y);
+    }
+
+    public void Play(Symbol symbol, int x, int y) throws Exception {
         if (isFirstMove()) {
-            if (playerIsNotX(symbol1)) {
+            if (playerIsNotX(symbol)) {
                 throw new Exception("Invalid first player");
             }
         }
-        else if (repeatedMove(symbol1)) {
+        else if (repeatedMove(symbol)) {
             throw new Exception("Invalid next player");
         }
         else if (tileIsAlreadyPlayed(x, y)) {
             throw new Exception("Invalid position");
         }
 
-        updateGameState(symbol1, x, y);
+        updateGameState(symbol, x, y);
     }
 
     private boolean tileIsAlreadyPlayed(int x, int y) {
