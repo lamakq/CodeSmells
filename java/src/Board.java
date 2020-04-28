@@ -14,7 +14,7 @@ public class Board
                 Tile tile = new Tile();
                 tile.setX(i);
                 tile.setY(j);
-                tile.setSymbol(new Symbol(' '));
+                tile.setSymbol(Symbol.SPACE);
                 _plays.add(tile);
             }
         }

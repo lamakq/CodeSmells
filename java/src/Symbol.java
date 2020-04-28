@@ -4,7 +4,7 @@ public class Symbol {
     public static final Symbol X = new Symbol('X');
     private char symbol;
 
-    public Symbol(char symbol) {
+    private Symbol(char symbol) {
         this.symbol = symbol;
     }
 
