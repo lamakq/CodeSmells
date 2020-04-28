@@ -2,7 +2,7 @@ public class Game {
     public static final char SPACE = ' ';
     public static final char CHAR_O = 'O';
     private Board _board = new Board();
-    Symbol lastSymbol = new Symbol();
+    Symbol lastSymbol = new Symbol(Game.SPACE);
 
     public void Play(char symbol, int x, int y) throws Exception {
         if (isFirstMove()) {

@@ -4,6 +4,7 @@ public class Tile
     private int X;
     private int Y;
     private char Symbol;
+    private Symbol symbol;
 
     public int getX() {
         return X;
@@ -27,5 +28,6 @@ public class Tile
 
     public void setSymbol(char symbol) {
         Symbol = symbol;
+        this.symbol = new Symbol(symbol);
     }
 }
