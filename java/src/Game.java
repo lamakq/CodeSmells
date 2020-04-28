@@ -1,5 +1,5 @@
 public class Game {
-    private Board _board = new Board();
+    Board _board = new Board();
     Symbol lastSymbol = Symbol.SPACE;
 
     public void Play(Symbol symbol, int x, int y) throws Exception {
@@ -35,64 +35,5 @@ public class Game {
         return lastSymbol.equals(Symbol.SPACE);
     }
 
-    public Symbol Winner() {
-        if (firstRowPositionsAreTaken()) {
-            if (firstRowHasSameSymbols()) {
-                return _board.TileAt(0, 0).getSymbol();
-            }
-        }
-
-        if (secondRowPositionsAreTaken()) {
-            if (secondRowHasSameSymbols()) {
-                return _board.TileAt(1, 0).getSymbol();
-            }
-        }
-
-        if (thirdRowPositionsAreTaken()) {
-            if (thirdRowHasSameSymbols()) {
-                return _board.TileAt(2, 0).getSymbol();
-            }
-        }
-
-        return Symbol.SPACE;
-    }
-
-    private boolean thirdRowHasSameSymbols() {
-        return _board.TileAt(2, 0).getSymbol().equals(
-                _board.TileAt(2, 1).getSymbol()) &&
-                _board.TileAt(2, 2).getSymbol().equals(
-                        _board.TileAt(2, 1).getSymbol());
-    }
-
-    private boolean thirdRowPositionsAreTaken() {
-        return _board.tileIsAlreadyPlayed(2, 0) &&
-                _board.tileIsAlreadyPlayed(2, 1) &&
-                _board.tileIsAlreadyPlayed(2, 2);
-    }
-
-    private boolean secondRowHasSameSymbols() {
-        return _board.TileAt(1, 0).getSymbol().equals(
-                _board.TileAt(1, 1).getSymbol()) &&
-                _board.TileAt(1, 2).getSymbol().equals(
-                        _board.TileAt(1, 1).getSymbol());
-    }
-
-    private boolean secondRowPositionsAreTaken() {
-        return _board.tileIsAlreadyPlayed(1, 0) &&
-                _board.tileIsAlreadyPlayed(1, 1) &&
-                _board.tileIsAlreadyPlayed(1, 2);
-    }
-
-    private boolean firstRowHasSameSymbols() {
-        return _board.TileAt(0, 0).getSymbol().equals(
-                _board.TileAt(0, 1).getSymbol()) &&
-                _board.TileAt(0, 2).getSymbol().equals(_board.TileAt(0, 1).getSymbol());
-    }
-
-    private boolean firstRowPositionsAreTaken() {
-        return _board.tileIsAlreadyPlayed(0, 0) &&
-                _board.tileIsAlreadyPlayed(0, 1) &&
-                _board.tileIsAlreadyPlayed(0, 2);
-    }
 }
 
