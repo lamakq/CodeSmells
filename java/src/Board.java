@@ -10,7 +10,7 @@ public class Board
         return plays.get(coordinate);
     }
 
-    public void AddTileAt(Symbol symbol, Coordinate coordinate)
+    public void AddTileAt(Coordinate coordinate, Symbol symbol)
     {
         plays.put(coordinate, symbol);
     }

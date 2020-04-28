@@ -2,13 +2,13 @@ public class Game {
     Board _board = new Board();
     Symbol lastSymbol = Symbol.SPACE;
 
-    public void Play(Symbol symbol, Coordinate coordinate) throws Exception {
-        validateMove(symbol, coordinate);
+    public void Play(Coordinate coordinate, Symbol symbol) throws Exception {
+        validateMove(coordinate, symbol);
 
         updateGameState(symbol, coordinate);
     }
 
-    private void validateMove(Symbol symbol, Coordinate coordinate) throws Exception {
+    private void validateMove(Coordinate coordinate, Symbol symbol) throws Exception {
         if (isFirstMove()) {
             if (playerIsNotX(symbol)) {
                 throw new Exception("Invalid first player");
@@ -32,7 +32,7 @@ public class Game {
 
     private void updateGameState(Symbol symbol, Coordinate coordinate) {
         lastSymbol = symbol;
-        _board.AddTileAt(symbol, coordinate);
+        _board.AddTileAt(coordinate, symbol);
     }
 
     private boolean isFirstMove() {
