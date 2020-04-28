@@ -20,7 +20,7 @@ public class Board
     public Tile TileAt(int x, int y)
     {
         for (Tile t : _plays) {
-            if (t.getX() == x && t.getY() == y){
+            if (t.hasPosition(x, y)){
                 return t;
             }
         }

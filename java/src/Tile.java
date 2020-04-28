@@ -11,12 +11,8 @@ public class Tile
         this.symbol = symbol;
     }
 
-    public int getX() {
-        return X;
-    }
-
-    public int getY() {
-        return Y;
+    public boolean hasPosition(int x, int y) {
+        return this.X == x && this.Y == y;
     }
 
     public Symbol getSymbol() {
