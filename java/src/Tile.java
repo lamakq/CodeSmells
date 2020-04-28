@@ -25,7 +25,7 @@ public class Tile
         return symbol.get();
     }
 
-    public void setSymbol(char symbol) {
-        this.symbol = new Symbol(symbol);
+    public void setSymbol(Symbol symbol) {
+        this.symbol = symbol;
     }
 }

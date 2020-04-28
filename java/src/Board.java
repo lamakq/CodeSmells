@@ -14,7 +14,7 @@ public class Board
                 Tile tile = new Tile();
                 tile.setX(i);
                 tile.setY(j);
-                tile.setSymbol(' ');
+                tile.setSymbol(new Symbol(' '));
                 _plays.add(tile);
             }
         }
@@ -30,7 +30,7 @@ public class Board
         return null;
     }
 
-    public void AddTileAt(char symbol, int x, int y)
+    public void AddTileAt(Symbol symbol, int x, int y)
     {
         Tile newTile = new Tile();
         newTile.setX(x);

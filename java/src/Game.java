@@ -20,7 +20,7 @@ public class Game {
             throw new Exception("Invalid position");
         }
 
-        updateGameState(symbol, x, y);
+        updateGameState(symbol1, x, y);
     }
 
     private boolean tileIsAlreadyPlayed(int x, int y) {
@@ -35,8 +35,8 @@ public class Game {
         return symbol.equals(CHAR_O_SYMBOL);
     }
 
-    private void updateGameState(char symbol, int x, int y) {
-        lastSymbol.set(symbol);
+    private void updateGameState(Symbol symbol, int x, int y) {
+        lastSymbol = symbol;
         _board.AddTileAt(symbol, x, y);
     }
 
