@@ -1,13 +1,11 @@
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class Board
 {
     private Map<Coordinate, Symbol> plays = new HashMap<>();
 
-    public Symbol symbolAt(int x, int y)
+    private Symbol symbolAt(int x, int y)
     {
         return plays.get(new Coordinate(x, y));
     }
@@ -21,7 +19,7 @@ public class Board
         return plays.containsKey(new Coordinate(x, y));
     }
 
-    public Symbol Winner(Game game) {
+    public Symbol Winner() {
         if (firstRowPositionsAreTaken()) {
             if (firstRowHasSameSymbols()) {
                 return symbolAt(0, 0);

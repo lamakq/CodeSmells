@@ -50,7 +50,7 @@ public class Game_Should {
         game.Play(Symbol.O, 1, 1);
         game.Play(Symbol.X, 0, 2);
 
-        Symbol winner = game._board.Winner(game);
+        Symbol winner = game._board.Winner();
 
         assertEquals(Symbol.X, winner);
     }
@@ -65,7 +65,7 @@ public class Game_Should {
         game.Play(Symbol.X, 1, 1);
         game.Play(Symbol.O, 0, 2);
 
-        Symbol winner = game._board.Winner(game);
+        Symbol winner = game._board.Winner();
 
         assertEquals(Symbol.O, winner);
     }
@@ -79,7 +79,7 @@ public class Game_Should {
         game.Play(Symbol.O, 0, 1);
         game.Play(Symbol.X, 1, 2);
 
-        Symbol winner = game._board.Winner(game);
+        Symbol winner = game._board.Winner();
 
         assertEquals(Symbol.X, winner);
     }
@@ -94,7 +94,7 @@ public class Game_Should {
         game.Play(Symbol.X, 2, 1);
         game.Play(Symbol.O, 1, 2);
 
-        Symbol winner = game._board.Winner(game);
+        Symbol winner = game._board.Winner();
 
         assertEquals(Symbol.O, winner);
     }
@@ -108,7 +108,7 @@ public class Game_Should {
         game.Play(Symbol.O, 0, 1);
         game.Play(Symbol.X, 2, 2);
 
-        Symbol winner = game._board.Winner(game);
+        Symbol winner = game._board.Winner();
 
         assertEquals(Symbol.X, winner);
     }
@@ -123,7 +123,7 @@ public class Game_Should {
         game.Play(Symbol.X, 1, 1);
         game.Play(Symbol.O, 2, 2);
 
-        Symbol winner = game._board.Winner(game);
+        Symbol winner = game._board.Winner();
 
         assertEquals(Symbol.O, winner);
     }
