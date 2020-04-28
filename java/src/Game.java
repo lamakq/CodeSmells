@@ -1,5 +1,4 @@
 public class Game {
-    public static final char SPACE = ' ';
     private Board _board = new Board();
     Symbol lastSymbol = Symbol.SPACE;
 
