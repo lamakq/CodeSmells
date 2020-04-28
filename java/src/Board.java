@@ -5,34 +5,15 @@ import java.util.Map;
 
 public class Board
 {
-    private List<Tile> _plays = new ArrayList<>();
     private Map<Coordinate, Symbol> plays = new HashMap<>();
 
-    public Board()
+    public Symbol symbolAt(int x, int y)
     {
-        for (int i = 0; i < 3; i++)
-        {
-            for (int j = 0; j < 3; j++)
-            {
-                Tile tile = new Tile(new Coordinate(i, j), Symbol.SPACE);
-                _plays.add(tile);
-            }
-        }
-    }
-
-    public Tile TileAt(int x, int y)
-    {
-        for (Tile t : _plays) {
-            if (t.hasPosition(x, y)){
-                return t;
-            }
-        }
-        return null;
+        return plays.get(new Coordinate(x, y));
     }
 
     public void AddTileAt(Symbol symbol, int x, int y)
     {
-        TileAt(x, y).setSymbol(symbol);
         plays.put(new Coordinate(x, y), symbol);
     }
 
@@ -43,19 +24,19 @@ public class Board
     public Symbol Winner(Game game) {
         if (firstRowPositionsAreTaken()) {
             if (firstRowHasSameSymbols()) {
-                return TileAt(0, 0).getSymbol();
+                return symbolAt(0, 0);
             }
         }
 
         if (secondRowPositionsAreTaken()) {
             if (secondRowHasSameSymbols()) {
-                return TileAt(1, 0).getSymbol();
+                return symbolAt(1, 0);
             }
         }
 
         if (thirdRowPositionsAreTaken()) {
             if (thirdRowHasSameSymbols()) {
-                return TileAt(2, 0).getSymbol();
+                return symbolAt(2, 0);
             }
         }
 
@@ -63,10 +44,10 @@ public class Board
     }
 
     private boolean thirdRowHasSameSymbols() {
-        return TileAt(2, 0).getSymbol().equals(
-                TileAt(2, 1).getSymbol()) &&
-                TileAt(2, 2).getSymbol().equals(
-                        TileAt(2, 1).getSymbol());
+        return symbolAt(2, 0).equals(
+                symbolAt(2, 1)) &&
+                symbolAt(2, 2).equals(
+                        symbolAt(2, 1));
     }
 
     private boolean thirdRowPositionsAreTaken() {
@@ -76,10 +57,10 @@ public class Board
     }
 
     private boolean secondRowHasSameSymbols() {
-        return TileAt(1, 0).getSymbol().equals(
-                TileAt(1, 1).getSymbol()) &&
-                TileAt(1, 2).getSymbol().equals(
-                        TileAt(1, 1).getSymbol());
+        return symbolAt(1, 0).equals(
+                symbolAt(1, 1)) &&
+                symbolAt(1, 2).equals(
+                        symbolAt(1, 1));
     }
 
     private boolean secondRowPositionsAreTaken() {
@@ -89,9 +70,9 @@ public class Board
     }
 
     private boolean firstRowHasSameSymbols() {
-        return TileAt(0, 0).getSymbol().equals(
-                TileAt(0, 1).getSymbol()) &&
-                TileAt(0, 2).getSymbol().equals(TileAt(0, 1).getSymbol());
+        return symbolAt(0, 0).equals(
+                symbolAt(0, 1)) &&
+                symbolAt(0, 2).equals(symbolAt(0, 1));
     }
 
     private boolean firstRowPositionsAreTaken() {
