@@ -21,10 +21,6 @@ public class Tile
         Y = y;
     }
 
-    public char getSymbol() {
-        return symbol.get();
-    }
-
     public Symbol getRealSymbol() {
         return symbol;
     }
