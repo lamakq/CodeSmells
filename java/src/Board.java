@@ -64,28 +64,4 @@ public class Board
                 .map(this::tileIsAlreadyPlayed)
                 .allMatch(TRUE::equals);
     }
-
-    private boolean thirdRowHasSameSymbols() {
-        return coordinatesHaveSameSymbols(THIRD_ROW_COORDINATES);
-    }
-
-    private boolean thirdRowPositionsAreTaken() {
-        return coordinatesAreAllTaken(THIRD_ROW_COORDINATES);
-    }
-
-    private boolean secondRowHasSameSymbols() {
-        return coordinatesHaveSameSymbols(SECOND_ROW_COORDINATES);
-    }
-
-    private boolean secondRowPositionsAreTaken() {
-        return coordinatesAreAllTaken(SECOND_ROW_COORDINATES);
-    }
-
-    private boolean firstRowHasSameSymbols() {
-        return coordinatesHaveSameSymbols(FIRST_ROW_COORDINATES);
-    }
-
-    private boolean firstRowPositionsAreTaken() {
-        return coordinatesAreAllTaken(FIRST_ROW_COORDINATES);
-    }
 }
