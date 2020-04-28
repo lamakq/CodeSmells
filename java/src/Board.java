@@ -11,7 +11,7 @@ public class Board
         {
             for (int j = 0; j < 3; j++)
             {
-                Tile tile = new Tile(i, j, Symbol.SPACE);
+                Tile tile = new Tile(new Coordinate(i, j), Symbol.SPACE);
                 _plays.add(tile);
             }
         }

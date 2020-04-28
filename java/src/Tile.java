@@ -4,9 +4,9 @@ public class Tile
     private Symbol symbol;
     private Coordinate coordinate;
 
-    public Tile(int x, int y, Symbol symbol) {
-        coordinate = new Coordinate(x, y);
+    public Tile(Coordinate coordinate, Symbol symbol) {
         this.symbol = symbol;
+        this.coordinate = coordinate;
     }
 
     public boolean hasPosition(int x, int y) {
