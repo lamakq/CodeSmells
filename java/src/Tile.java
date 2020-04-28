@@ -1,18 +1,16 @@
 
 public class Tile
 {
-    private int X;
-    private int Y;
     private Symbol symbol;
+    private Coordinate coordinate;
 
     public Tile(int x, int y, Symbol symbol) {
-        X = x;
-        Y = y;
+        coordinate = new Coordinate(x, y);
         this.symbol = symbol;
     }
 
     public boolean hasPosition(int x, int y) {
-        return this.X == x && this.Y == y;
+        return new Coordinate(x, y).equals(coordinate);
     }
 
     public Symbol getSymbol() {
