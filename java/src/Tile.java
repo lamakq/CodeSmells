@@ -25,6 +25,10 @@ public class Tile
         return symbol.get();
     }
 
+    public Symbol getRealSymbol() {
+        return symbol;
+    }
+
     public void setSymbol(Symbol symbol) {
         this.symbol = symbol;
     }
