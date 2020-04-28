@@ -23,15 +23,12 @@ public class Board
     }
 
     public Symbol Winner() {
-        for (Coordinate[] coordinates: ALL_WINNING_COORDINATES) {
-            if (coordinatesAreAllTaken(coordinates)) {
-                if (coordinatesHaveSameSymbols(coordinates)) {
-                    return symbolAt(coordinates[0]);
-                }
-            }
-        }
-
-        return Symbol.SPACE;
+        return Arrays.stream(ALL_ROW_COORDINATES)
+                .filter(this::coordinatesAreAllTaken)
+                .filter(this::coordinatesHaveSameSymbols)
+                .map(coordinates -> symbolAt(coordinates[0]))
+                .findFirst()
+                .orElse(Symbol.SPACE);
     }
 
     private static final Coordinate[] THIRD_ROW_COORDINATES = {
@@ -49,7 +46,7 @@ public class Board
             new Coordinate(0, 1),
             new Coordinate(0,2)};
 
-    private static final Coordinate[][] ALL_WINNING_COORDINATES = {
+    private static final Coordinate[][] ALL_ROW_COORDINATES = {
             FIRST_ROW_COORDINATES, SECOND_ROW_COORDINATES, THIRD_ROW_COORDINATES
     };
 
