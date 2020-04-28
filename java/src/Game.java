@@ -3,10 +3,6 @@ public class Game {
     private Board _board = new Board();
     Symbol lastSymbol = new Symbol(Game.SPACE);
 
-    public void Play(char symbol, int x, int y) throws Exception {
-        Play(new Symbol(symbol), x, y);
-    }
-
     public void Play(Symbol symbol, int x, int y) throws Exception {
         if (isFirstMove()) {
             if (playerIsNotX(symbol)) {
