@@ -21,7 +21,7 @@ public class Game {
     }
 
     private boolean tileIsAlreadyPlayed(int x, int y) {
-        return !_board.TileAt(x, y).getRealSymbol().equals(Symbol.SPACE);
+        return !_board.TileAt(x, y).getSymbol().equals(Symbol.SPACE);
     }
 
     private boolean repeatedMove(Symbol symbol) {
@@ -47,10 +47,10 @@ public class Game {
                 tileIsAlreadyPlayed(0, 1) &&
                 tileIsAlreadyPlayed(0, 2)) {
             //if first row is full with same symbol
-            if (_board.TileAt(0, 0).getRealSymbol().equals(
-                    _board.TileAt(0, 1).getRealSymbol()) &&
-                    _board.TileAt(0, 2).getRealSymbol().equals(_board.TileAt(0, 1).getRealSymbol())) {
-                return _board.TileAt(0, 0).getRealSymbol();
+            if (_board.TileAt(0, 0).getSymbol().equals(
+                    _board.TileAt(0, 1).getSymbol()) &&
+                    _board.TileAt(0, 2).getSymbol().equals(_board.TileAt(0, 1).getSymbol())) {
+                return _board.TileAt(0, 0).getSymbol();
             }
         }
 
@@ -59,11 +59,11 @@ public class Game {
                 tileIsAlreadyPlayed(1, 1) &&
                 tileIsAlreadyPlayed(1, 2)) {
             //if middle row is full with same symbol
-            if (_board.TileAt(1, 0).getRealSymbol().equals(
-                    _board.TileAt(1, 1).getRealSymbol()) &&
-                    _board.TileAt(1, 2).getRealSymbol().equals(
-                            _board.TileAt(1, 1).getRealSymbol())) {
-                return _board.TileAt(1, 0).getRealSymbol();
+            if (_board.TileAt(1, 0).getSymbol().equals(
+                    _board.TileAt(1, 1).getSymbol()) &&
+                    _board.TileAt(1, 2).getSymbol().equals(
+                            _board.TileAt(1, 1).getSymbol())) {
+                return _board.TileAt(1, 0).getSymbol();
             }
         }
 
@@ -72,11 +72,11 @@ public class Game {
                 tileIsAlreadyPlayed(2, 1) &&
                 tileIsAlreadyPlayed(2, 2)) {
             //if middle row is full with same symbol
-            if (_board.TileAt(2, 0).getRealSymbol().equals(
-                    _board.TileAt(2, 1).getRealSymbol()) &&
-                    _board.TileAt(2, 2).getRealSymbol().equals(
-                            _board.TileAt(2, 1).getRealSymbol())) {
-                return _board.TileAt(2, 0).getRealSymbol();
+            if (_board.TileAt(2, 0).getSymbol().equals(
+                    _board.TileAt(2, 1).getSymbol()) &&
+                    _board.TileAt(2, 2).getSymbol().equals(
+                            _board.TileAt(2, 1).getSymbol())) {
+                return _board.TileAt(2, 0).getSymbol();
             }
         }
 

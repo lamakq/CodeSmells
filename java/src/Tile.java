@@ -21,7 +21,7 @@ public class Tile
         Y = y;
     }
 
-    public Symbol getRealSymbol() {
+    public Symbol getSymbol() {
         return symbol;
     }
 
