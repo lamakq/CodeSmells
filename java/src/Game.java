@@ -32,7 +32,7 @@ public class Game {
 
     private void updateGameState(Symbol symbol, int x, int y) {
         lastSymbol = symbol;
-        _board.AddTileAt(symbol, x, y);
+        _board.AddTileAt(symbol, new Coordinate(x, y));
     }
 
     private boolean isFirstMove() {

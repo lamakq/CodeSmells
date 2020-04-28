@@ -10,13 +10,22 @@ public class Board
         return plays.get(new Coordinate(x, y));
     }
 
-    public void AddTileAt(Symbol symbol, int x, int y)
+    private Symbol symbolAt(Coordinate coordinate)
     {
-        plays.put(new Coordinate(x, y), symbol);
+        return plays.get(coordinate);
+    }
+
+    public void AddTileAt(Symbol symbol, Coordinate coordinate)
+    {
+        plays.put(coordinate, symbol);
     }
 
     boolean tileIsAlreadyPlayed(int x, int y) {
         return plays.containsKey(new Coordinate(x, y));
+    }
+
+    boolean tileIsAlreadyPlayed(Coordinate coordinate) {
+        return plays.containsKey(coordinate);
     }
 
     public Symbol Winner() {
