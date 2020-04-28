@@ -1,8 +1,5 @@
 public class Game {
     public static final char SPACE = ' ';
-    public static final Symbol SPACE_SYMBOL = new Symbol(SPACE);
-    public static final char CHAR_O = 'O';
-    public static final Symbol CHAR_O_SYMBOL = new Symbol(CHAR_O);
     private Board _board = new Board();
     Symbol lastSymbol = new Symbol(Game.SPACE);
 
@@ -32,7 +29,7 @@ public class Game {
     }
 
     private boolean playerIsNotX(Symbol symbol) {
-        return symbol.equals(CHAR_O_SYMBOL);
+        return symbol.equals(Symbol.O);
     }
 
     private void updateGameState(Symbol symbol, int x, int y) {
@@ -41,7 +38,7 @@ public class Game {
     }
 
     private boolean isFirstMove() {
-        return lastSymbol.equals(SPACE_SYMBOL);
+        return lastSymbol.equals(Symbol.SPACE);
     }
 
     public char Winner() {
