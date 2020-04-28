@@ -1,14 +1,11 @@
 public class Symbol {
     public static final Symbol SPACE = new Symbol(' ');
     public static final Symbol O = new Symbol('O');
-    public char symbol;
+    public static final Symbol X = new Symbol('X');
+    private char symbol;
 
     public Symbol(char symbol) {
         this.symbol = symbol;
-    }
-
-    public char get() {
-        return symbol;
     }
 
     @Override
