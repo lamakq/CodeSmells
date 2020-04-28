@@ -2,6 +2,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+import static java.lang.Boolean.TRUE;
+
 public class Board
 {
     private Map<Coordinate, Symbol> plays = new HashMap<>();
@@ -58,11 +60,15 @@ public class Board
             new Coordinate(0,2)};
 
     private boolean coordinatesHaveSameSymbols(Coordinate[] coordinates) {
-        return Arrays.stream(coordinates).map(plays::get).allMatch(plays.get(coordinates[0])::equals);
+        return Arrays.stream(coordinates)
+                .map(plays::get)
+                .allMatch(plays.get(coordinates[0])::equals);
     }
 
     private boolean coordinatesAreAllTaken(Coordinate[] coordinates) {
-        return Arrays.stream(coordinates).map(this::tileIsAlreadyPlayed).allMatch(Boolean.TRUE::equals);
+        return Arrays.stream(coordinates)
+                .map(this::tileIsAlreadyPlayed)
+                .allMatch(TRUE::equals);
     }
 
     private boolean thirdRowHasSameSymbols() {
