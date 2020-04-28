@@ -23,7 +23,7 @@ public class Tile
     }
 
     public char getSymbol() {
-        return Symbol;
+        return symbol.get();
     }
 
     public void setSymbol(char symbol) {
