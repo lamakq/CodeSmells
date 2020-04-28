@@ -39,4 +39,8 @@ public class Board
 
         TileAt(x, y).setSymbol(symbol);
     }
+
+    boolean tileIsAlreadyPlayed(int x, int y) {
+        return !TileAt(x, y).getSymbol().equals(Symbol.SPACE);
+    }
 }

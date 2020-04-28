@@ -12,15 +12,11 @@ public class Game {
         else if (repeatedMove(symbol)) {
             throw new Exception("Invalid next player");
         }
-        else if (tileIsAlreadyPlayed(x, y)) {
+        else if (_board.tileIsAlreadyPlayed(x, y)) {
             throw new Exception("Invalid position");
         }
 
         updateGameState(symbol, x, y);
-    }
-
-    private boolean tileIsAlreadyPlayed(int x, int y) {
-        return !_board.TileAt(x, y).getSymbol().equals(Symbol.SPACE);
     }
 
     private boolean repeatedMove(Symbol symbol) {
@@ -70,9 +66,9 @@ public class Game {
     }
 
     private boolean thirdRowPositionsAreTaken() {
-        return tileIsAlreadyPlayed(2, 0) &&
-                tileIsAlreadyPlayed(2, 1) &&
-                tileIsAlreadyPlayed(2, 2);
+        return _board.tileIsAlreadyPlayed(2, 0) &&
+                _board.tileIsAlreadyPlayed(2, 1) &&
+                _board.tileIsAlreadyPlayed(2, 2);
     }
 
     private boolean secondRowHasSameSymbols() {
@@ -83,9 +79,9 @@ public class Game {
     }
 
     private boolean secondRowPositionsAreTaken() {
-        return tileIsAlreadyPlayed(1, 0) &&
-                tileIsAlreadyPlayed(1, 1) &&
-                tileIsAlreadyPlayed(1, 2);
+        return _board.tileIsAlreadyPlayed(1, 0) &&
+                _board.tileIsAlreadyPlayed(1, 1) &&
+                _board.tileIsAlreadyPlayed(1, 2);
     }
 
     private boolean firstRowHasSameSymbols() {
@@ -95,9 +91,9 @@ public class Game {
     }
 
     private boolean firstRowPositionsAreTaken() {
-        return tileIsAlreadyPlayed(0, 0) &&
-                tileIsAlreadyPlayed(0, 1) &&
-                tileIsAlreadyPlayed(0, 2);
+        return _board.tileIsAlreadyPlayed(0, 0) &&
+                _board.tileIsAlreadyPlayed(0, 1) &&
+                _board.tileIsAlreadyPlayed(0, 2);
     }
 }
 
