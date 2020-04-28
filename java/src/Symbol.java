@@ -1,5 +1,5 @@
 public class Symbol {
-    public char symbol = Game.SPACE;
+    public char symbol;
 
     public Symbol(char symbol) {
         this.symbol = symbol;
@@ -7,10 +7,6 @@ public class Symbol {
 
     public char get() {
         return symbol;
-    }
-
-    public void set(char symbol) {
-        this.symbol = symbol;
     }
 
     @Override
