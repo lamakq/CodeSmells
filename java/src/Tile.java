@@ -5,20 +5,18 @@ public class Tile
     private int Y;
     private Symbol symbol;
 
+    public Tile(int x, int y, Symbol symbol) {
+        X = x;
+        Y = y;
+        this.symbol = symbol;
+    }
+
     public int getX() {
         return X;
     }
 
-    public void setX(int x) {
-        X = x;
-    }
-
     public int getY() {
         return Y;
-    }
-
-    public void setY(int y) {
-        Y = y;
     }
 
     public Symbol getSymbol() {

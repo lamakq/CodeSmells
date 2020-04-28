@@ -11,10 +11,7 @@ public class Board
         {
             for (int j = 0; j < 3; j++)
             {
-                Tile tile = new Tile();
-                tile.setX(i);
-                tile.setY(j);
-                tile.setSymbol(Symbol.SPACE);
+                Tile tile = new Tile(i, j, Symbol.SPACE);
                 _plays.add(tile);
             }
         }
@@ -32,11 +29,6 @@ public class Board
 
     public void AddTileAt(Symbol symbol, int x, int y)
     {
-        Tile newTile = new Tile();
-        newTile.setX(x);
-        newTile.setY(y);
-        newTile.setSymbol(symbol);
-
         TileAt(x, y).setSymbol(symbol);
     }
 
