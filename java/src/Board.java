@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -41,11 +42,17 @@ public class Board
         return Symbol.SPACE;
     }
 
+    private static final Coordinate[] THIRD_ROW_COORDINATES = {
+            new Coordinate(2,0),
+            new Coordinate(2, 1),
+            new Coordinate(2,2)};
+
+    private boolean coordinatesHaveSameSymbols(Coordinate[] coordinates) {
+        return Arrays.stream(coordinates).map(plays::get).allMatch(plays.get(coordinates[0])::equals);
+    }
+
     private boolean thirdRowHasSameSymbols() {
-        return symbolAt(new Coordinate(2, 0)).equals(
-                symbolAt(new Coordinate(2, 1))) &&
-                symbolAt(new Coordinate(2, 2)).equals(
-                        symbolAt(new Coordinate(2, 1)));
+        return coordinatesHaveSameSymbols(THIRD_ROW_COORDINATES);
     }
 
     private boolean thirdRowPositionsAreTaken() {
