@@ -41,7 +41,7 @@ public class Game {
         return lastSymbol.equals(Symbol.SPACE);
     }
 
-    public char Winner() {
+    public Symbol Winner() {
         //if the positions in first row are taken
         if (tileIsAlreadyPlayed(0, 0) &&
                 tileIsAlreadyPlayed(0, 1) &&
@@ -50,7 +50,7 @@ public class Game {
             if (_board.TileAt(0, 0).getRealSymbol().equals(
                     _board.TileAt(0, 1).getRealSymbol()) &&
                     _board.TileAt(0, 2).getRealSymbol().equals(_board.TileAt(0, 1).getRealSymbol())) {
-                return _board.TileAt(0, 0).getSymbol();
+                return _board.TileAt(0, 0).getRealSymbol();
             }
         }
 
@@ -63,7 +63,7 @@ public class Game {
                     _board.TileAt(1, 1).getRealSymbol()) &&
                     _board.TileAt(1, 2).getRealSymbol().equals(
                             _board.TileAt(1, 1).getRealSymbol())) {
-                return _board.TileAt(1, 0).getSymbol();
+                return _board.TileAt(1, 0).getRealSymbol();
             }
         }
 
@@ -76,11 +76,11 @@ public class Game {
                     _board.TileAt(2, 1).getRealSymbol()) &&
                     _board.TileAt(2, 2).getRealSymbol().equals(
                             _board.TileAt(2, 1).getRealSymbol())) {
-                return _board.TileAt(2, 0).getSymbol();
+                return _board.TileAt(2, 0).getRealSymbol();
             }
         }
 
-        return SPACE;
+        return Symbol.SPACE;
     }
 }
 
