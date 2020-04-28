@@ -41,45 +41,63 @@ public class Game {
     }
 
     public Symbol Winner() {
-        //if the positions in first row are taken
-        if (tileIsAlreadyPlayed(0, 0) &&
-                tileIsAlreadyPlayed(0, 1) &&
-                tileIsAlreadyPlayed(0, 2)) {
-            //if first row is full with same symbol
-            if (_board.TileAt(0, 0).getSymbol().equals(
-                    _board.TileAt(0, 1).getSymbol()) &&
-                    _board.TileAt(0, 2).getSymbol().equals(_board.TileAt(0, 1).getSymbol())) {
+        if (firstRowPositionsAreTaken()) {
+            if (firstRowHasSameSymbols()) {
                 return _board.TileAt(0, 0).getSymbol();
             }
         }
 
-        //if the positions in first row are taken
-        if (tileIsAlreadyPlayed(1, 0) &&
-                tileIsAlreadyPlayed(1, 1) &&
-                tileIsAlreadyPlayed(1, 2)) {
-            //if middle row is full with same symbol
-            if (_board.TileAt(1, 0).getSymbol().equals(
-                    _board.TileAt(1, 1).getSymbol()) &&
-                    _board.TileAt(1, 2).getSymbol().equals(
-                            _board.TileAt(1, 1).getSymbol())) {
+        if (secondRowPositionsAreTaken()) {
+            if (secondRowHasSameSymbols()) {
                 return _board.TileAt(1, 0).getSymbol();
             }
         }
 
-        //if the positions in first row are taken
-        if (tileIsAlreadyPlayed(2, 0) &&
-                tileIsAlreadyPlayed(2, 1) &&
-                tileIsAlreadyPlayed(2, 2)) {
-            //if middle row is full with same symbol
-            if (_board.TileAt(2, 0).getSymbol().equals(
-                    _board.TileAt(2, 1).getSymbol()) &&
-                    _board.TileAt(2, 2).getSymbol().equals(
-                            _board.TileAt(2, 1).getSymbol())) {
+        if (thirdRowPositionsAreTaken()) {
+            if (thirdRowHasSameSymbols()) {
                 return _board.TileAt(2, 0).getSymbol();
             }
         }
 
         return Symbol.SPACE;
+    }
+
+    private boolean thirdRowHasSameSymbols() {
+        return _board.TileAt(2, 0).getSymbol().equals(
+                _board.TileAt(2, 1).getSymbol()) &&
+                _board.TileAt(2, 2).getSymbol().equals(
+                        _board.TileAt(2, 1).getSymbol());
+    }
+
+    private boolean thirdRowPositionsAreTaken() {
+        return tileIsAlreadyPlayed(2, 0) &&
+                tileIsAlreadyPlayed(2, 1) &&
+                tileIsAlreadyPlayed(2, 2);
+    }
+
+    private boolean secondRowHasSameSymbols() {
+        return _board.TileAt(1, 0).getSymbol().equals(
+                _board.TileAt(1, 1).getSymbol()) &&
+                _board.TileAt(1, 2).getSymbol().equals(
+                        _board.TileAt(1, 1).getSymbol());
+    }
+
+    private boolean secondRowPositionsAreTaken() {
+        return tileIsAlreadyPlayed(1, 0) &&
+                tileIsAlreadyPlayed(1, 1) &&
+                tileIsAlreadyPlayed(1, 2);
+    }
+
+    private boolean firstRowHasSameSymbols() {
+        return _board.TileAt(0, 0).getSymbol().equals(
+                _board.TileAt(0, 1).getSymbol()) &&
+                _board.TileAt(0, 2).getSymbol().equals(_board.TileAt(0, 1).getSymbol());
+    }
+
+    private boolean firstRowPositionsAreTaken() {
+        return tileIsAlreadyPlayed(0, 0) &&
+                tileIsAlreadyPlayed(0, 1) &&
+                tileIsAlreadyPlayed(0, 2);
     }
 }
 
