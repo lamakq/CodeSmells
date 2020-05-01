@@ -8,7 +8,7 @@ public class Game {
     }
 
     private void validateMove(Coordinate coordinate, Symbol symbol) throws Exception {
-        moveValidator.validateFirstMove(symbol, this);
+        moveValidator.validateFirstMove(symbol);
         moveValidator.validateRepeatedMove(symbol);
         _board.validateTileAlreadyPlayed(coordinate);
     }

@@ -12,7 +12,7 @@ public class MoveValidator {
         }
     }
 
-    void validateFirstMove(Symbol symbol, Game game) throws Exception {
+    void validateFirstMove(Symbol symbol) throws Exception {
         if (isFirstMove()) {
             if (symbol.isO()) {
                 throw new Exception("Invalid first player");
