@@ -25,37 +25,22 @@ public class Board
 
     public Symbol Winner() {
         return filterWinningRows()
-                .map(coordinates -> symbolAt(coordinates[0]))
+                .map(row -> symbolAt(row.getCoordinates()[0]))
                 .findFirst()
                 .orElse(Symbol.SPACE);
     }
 
-    private Stream<Coordinate[]> filterWinningRows() {
-        return Arrays.stream(ALL_ROW_COORDINATES)
+    private Stream<Row> filterWinningRows() {
+        return Arrays.stream(ALL_ROWS)
                 .filter(this::areWinningCoordinates);
     }
 
-    private boolean areWinningCoordinates(Coordinate[] coordinates) {
-        return coordinatesAreAllTaken(coordinates) && coordinatesHaveSameSymbols(coordinates);
+    private boolean areWinningCoordinates(Row row) {
+        return coordinatesAreAllTaken(row.getCoordinates()) && coordinatesHaveSameSymbols(row.getCoordinates());
     }
 
-    private static final Coordinate[] THIRD_ROW_COORDINATES = {
-            new Coordinate(2,0),
-            new Coordinate(2, 1),
-            new Coordinate(2,2)};
-
-    private static final Coordinate[] SECOND_ROW_COORDINATES = {
-            new Coordinate(1,0),
-            new Coordinate(1, 1),
-            new Coordinate(1,2)};
-
-    private static final Coordinate[] FIRST_ROW_COORDINATES = {
-            new Coordinate(0,0),
-            new Coordinate(0, 1),
-            new Coordinate(0,2)};
-
-    private static final Coordinate[][] ALL_ROW_COORDINATES = {
-            FIRST_ROW_COORDINATES, SECOND_ROW_COORDINATES, THIRD_ROW_COORDINATES
+    private static final Row[] ALL_ROWS = {
+            new Row(0), new Row(1), new Row(2)
     };
 
     private boolean coordinatesHaveSameSymbols(Coordinate[] coordinates) {
