@@ -1,6 +1,7 @@
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Stream;
 
 import static java.lang.Boolean.TRUE;
 
@@ -23,11 +24,15 @@ public class Board
     }
 
     public Symbol Winner() {
-        return Arrays.stream(ALL_ROW_COORDINATES)
-                .filter(this::areWinningCoordinates)
+        return filterWinningRows()
                 .map(coordinates -> symbolAt(coordinates[0]))
                 .findFirst()
                 .orElse(Symbol.SPACE);
+    }
+
+    private Stream<Coordinate[]> filterWinningRows() {
+        return Arrays.stream(ALL_ROW_COORDINATES)
+                .filter(this::areWinningCoordinates);
     }
 
     private boolean areWinningCoordinates(Coordinate[] coordinates) {
