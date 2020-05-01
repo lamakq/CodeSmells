@@ -1,6 +1,9 @@
 public class Game {
     Board _board = new Board();
-    Symbol lastSymbol = Symbol.SPACE;
+
+    public Game() {
+        MoveValidator.lastSymbol = Symbol.SPACE;
+    }
 
     public void Play(Coordinate coordinate, Symbol symbol) throws Exception {
         validateMove(coordinate, symbol);
@@ -28,7 +31,7 @@ public class Game {
     }
 
     private boolean repeatedMove(Symbol symbol) {
-        return symbol.equals(lastSymbol);
+        return symbol.equals(MoveValidator.getLastSymbol());
     }
 
     private boolean playerIsNotX(Symbol symbol) {
@@ -36,12 +39,12 @@ public class Game {
     }
 
     private void updateGameState(Symbol symbol, Coordinate coordinate) {
-        lastSymbol = symbol;
+        MoveValidator.setLastSymbol(symbol);
         _board.AddTileAt(coordinate, symbol);
     }
 
     private boolean isFirstMove() {
-        return lastSymbol.equals(Symbol.SPACE);
+        return MoveValidator.getLastSymbol().equals(Symbol.SPACE);
     }
 
 }
