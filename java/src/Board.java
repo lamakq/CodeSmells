@@ -5,17 +5,14 @@ import java.util.stream.Stream;
 
 import static java.lang.Boolean.TRUE;
 
-public class Board
-{
+public class Board {
     private Map<Coordinate, Symbol> plays = new HashMap<>();
 
-    private Symbol symbolAt(Coordinate coordinate)
-    {
+    private Symbol symbolAt(Coordinate coordinate) {
         return plays.get(coordinate);
     }
 
-    public void AddTileAt(Coordinate coordinate, Symbol symbol)
-    {
+    public void AddTileAt(Coordinate coordinate, Symbol symbol) {
         plays.put(coordinate, symbol);
     }
 
@@ -25,7 +22,7 @@ public class Board
 
     public Symbol Winner() {
         return filterWinningRows()
-                .map(row -> symbolAt(row.getCoordinates()[0]))
+                .map(row -> symbolAt(row.getFirstCoordinate()))
                 .findFirst()
                 .orElse(Symbol.SPACE);
     }
@@ -36,21 +33,25 @@ public class Board
     }
 
     private boolean areWinningCoordinates(Row row) {
-        return coordinatesAreAllTaken(row.getCoordinates()) && coordinatesHaveSameSymbols(row.getCoordinates());
+        return coordinatesAreAllTaken(row) && coordinatesHaveSameSymbols(row);
     }
 
     private static final Row[] ALL_ROWS = {
             new Row(0), new Row(1), new Row(2)
     };
 
-    private boolean coordinatesHaveSameSymbols(Coordinate[] coordinates) {
-        return Arrays.stream(coordinates)
+    private boolean coordinatesHaveSameSymbols(Row row) {
+        return row.getCoordinatesStream()
                 .map(plays::get)
-                .allMatch(plays.get(coordinates[0])::equals);
+                .allMatch(plays.get(getFirstCoordinate(row.getFirstCoordinate()))::equals);
     }
 
-    private boolean coordinatesAreAllTaken(Coordinate[] coordinates) {
-        return Arrays.stream(coordinates)
+    private Coordinate getFirstCoordinate(Coordinate key) {
+        return key;
+    }
+
+    private boolean coordinatesAreAllTaken(Row row) {
+        return row.getCoordinatesStream()
                 .map(this::tileIsAlreadyPlayed)
                 .allMatch(TRUE::equals);
     }

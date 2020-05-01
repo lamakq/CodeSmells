@@ -1,9 +1,8 @@
+import java.util.Arrays;
+import java.util.stream.Stream;
+
 class Row {
     private final Coordinate[] coordinates;
-
-    private Row(Coordinate[] coordinates) {
-        this.coordinates = coordinates;
-    }
 
     public Row(int row) {
         coordinates = new Coordinate[3];
@@ -11,7 +10,11 @@ class Row {
             coordinates[column] = new Coordinate(row, column);
     }
 
-    public Coordinate[] getCoordinates() {
-        return coordinates;
+    public Stream<Coordinate> getCoordinatesStream() {
+        return Arrays.stream(coordinates);
+    }
+
+    public Coordinate getFirstCoordinate() {
+        return coordinates[0];
     }
 }
