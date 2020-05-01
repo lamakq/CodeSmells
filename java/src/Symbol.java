@@ -22,8 +22,4 @@ public class Symbol {
     public int hashCode() {
         return (int) symbol;
     }
-
-    boolean isFirstMove() {
-        return MoveValidator.getLastSymbol().equals(SPACE);
-    }
 }

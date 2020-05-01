@@ -1,11 +1,12 @@
-public class MoveValidator {
-    static Symbol lastSymbol = Symbol.SPACE;
 
-    public static Symbol getLastSymbol() {
+public class MoveValidator {
+    Symbol lastSymbol = Symbol.SPACE;
+
+    public Symbol getLastSymbol() {
         return lastSymbol;
     }
 
-    public static void setLastSymbol(Symbol last) {
+    public void setLastSymbol(Symbol last) {
         lastSymbol = last;
     }
 
@@ -17,5 +18,21 @@ public class MoveValidator {
         if (repeatedMove(symbol)) {
             throw new Exception("Invalid next player");
         }
+    }
+
+    boolean playerIsNotX(Symbol symbol) {
+        return symbol.equals(Symbol.O);
+    }
+
+    void validateFirstMove(Symbol symbol, Game game) throws Exception {
+        if (isFirstMove()) {
+            if (playerIsNotX(symbol)) {
+                throw new Exception("Invalid first player");
+            }
+        }
+    }
+
+    boolean isFirstMove() {
+        return getLastSymbol().equals(Symbol.SPACE);
     }
 }
