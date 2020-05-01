@@ -1,5 +1,6 @@
 public class Game {
     Board _board = new Board();
+    MoveValidator moveValidator = new MoveValidator();
 
     public Game() {
         MoveValidator.lastSymbol = Symbol.SPACE;
@@ -12,26 +13,16 @@ public class Game {
 
     private void validateMove(Coordinate coordinate, Symbol symbol) throws Exception {
         validateFirstMove(symbol);
-        validateRepeatedMove(symbol);
+        moveValidator.validateRepeatedMove(symbol);
         _board.validateTileAlreadyPlayed(coordinate);
     }
 
-    private void validateRepeatedMove(Symbol symbol) throws Exception {
-        if (repeatedMove(symbol)) {
-            throw new Exception("Invalid next player");
-        }
-    }
-
     private void validateFirstMove(Symbol symbol) throws Exception {
-        if (isFirstMove()) {
+        if (moveValidator.lastSymbol.isFirstMove()) {
             if (playerIsNotX(symbol)) {
                 throw new Exception("Invalid first player");
             }
         }
-    }
-
-    private boolean repeatedMove(Symbol symbol) {
-        return symbol.equals(MoveValidator.getLastSymbol());
     }
 
     private boolean playerIsNotX(Symbol symbol) {
@@ -41,10 +32,6 @@ public class Game {
     private void updateGameState(Symbol symbol, Coordinate coordinate) {
         MoveValidator.setLastSymbol(symbol);
         _board.AddTileAt(coordinate, symbol);
-    }
-
-    private boolean isFirstMove() {
-        return MoveValidator.getLastSymbol().equals(Symbol.SPACE);
     }
 
 }
