@@ -2,37 +2,25 @@
 public class MoveValidator {
     Symbol lastSymbol = Symbol.SPACE;
 
-    public Symbol getLastSymbol() {
-        return lastSymbol;
-    }
-
     public void setLastSymbol(Symbol last) {
         lastSymbol = last;
     }
 
-    boolean repeatedMove(Symbol symbol) {
-        return symbol.equals(getLastSymbol());
-    }
-
     void validateRepeatedMove(Symbol symbol) throws Exception {
-        if (repeatedMove(symbol)) {
+        if (symbol.equals(lastSymbol)) {
             throw new Exception("Invalid next player");
         }
     }
 
-    boolean playerIsNotX(Symbol symbol) {
-        return symbol.equals(Symbol.O);
-    }
-
     void validateFirstMove(Symbol symbol, Game game) throws Exception {
         if (isFirstMove()) {
-            if (playerIsNotX(symbol)) {
+            if (symbol.isO()) {
                 throw new Exception("Invalid first player");
             }
         }
     }
 
     boolean isFirstMove() {
-        return getLastSymbol().equals(Symbol.SPACE);
+        return lastSymbol.equals(Symbol.SPACE);
     }
 }

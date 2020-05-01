@@ -22,4 +22,8 @@ public class Symbol {
     public int hashCode() {
         return (int) symbol;
     }
+
+    boolean isO() {
+        return equals(O);
+    }
 }
