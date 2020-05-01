@@ -10,13 +10,7 @@ public class Game {
     private void validateMove(Coordinate coordinate, Symbol symbol) throws Exception {
         validateFirstMove(symbol);
         validateRepeatedMove(symbol);
-        validateTileAlreadyPlayed(coordinate);
-    }
-
-    private void validateTileAlreadyPlayed(Coordinate coordinate) throws Exception {
-        if (_board.tileIsAlreadyPlayed(coordinate)) {
-            throw new Exception("Invalid position");
-        }
+        _board.validateTileAlreadyPlayed(coordinate);
     }
 
     private void validateRepeatedMove(Symbol symbol) throws Exception {

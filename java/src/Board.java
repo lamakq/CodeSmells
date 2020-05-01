@@ -64,4 +64,10 @@ public class Board
                 .map(this::tileIsAlreadyPlayed)
                 .allMatch(TRUE::equals);
     }
+
+    void validateTileAlreadyPlayed(Coordinate coordinate) throws Exception {
+        if (tileIsAlreadyPlayed(coordinate)) {
+            throw new Exception("Invalid position");
+        }
+    }
 }
